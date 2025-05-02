@@ -1,11 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ShoppingCart, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Button } from './ui/button';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,19 +40,44 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link to="/" className="nav-link">Home</Link>
-            <Link to="/#services" className="nav-link">Services</Link>
-            <Link to="/#projects" className="nav-link">Projects</Link>
+            <Link to="/#services" className="nav-link">Products</Link>
+            <Link to="/#projects" className="nav-link">Collections</Link>
             <Link to="/#about" className="nav-link">About</Link>
             <Link to="/#contact" className="nav-link">Contact</Link>
           </nav>
 
+          {/* Cart and User Icons */}
+          <div className="hidden md:flex items-center space-x-4">
+            <Link to="/account" className="p-2 hover:text-primary transition-colors">
+              <User size={22} />
+            </Link>
+            <Link to="/cart" className="p-2 hover:text-primary transition-colors relative">
+              <ShoppingCart size={22} />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+          </div>
+
           {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden text-foreground hover:text-primary transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex md:hidden items-center space-x-4">
+            <Link to="/cart" className="p-2 hover:text-primary transition-colors relative">
+              <ShoppingCart size={22} />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+            <button 
+              className="text-foreground hover:text-primary transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -70,14 +97,14 @@ const Navbar = () => {
               className="nav-link text-lg" 
               onClick={() => setMobileMenuOpen(false)}
             >
-              Services
+              Products
             </Link>
             <Link 
               to="/#projects" 
               className="nav-link text-lg" 
               onClick={() => setMobileMenuOpen(false)}
             >
-              Projects
+              Collections
             </Link>
             <Link 
               to="/#about" 
@@ -92,6 +119,13 @@ const Navbar = () => {
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact
+            </Link>
+            <Link 
+              to="/account" 
+              className="nav-link text-lg" 
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              My Account
             </Link>
           </div>
         </nav>

@@ -1,11 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
-import { ArrowDown } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
+import { Button } from './ui/button';
 
 const Hero = () => {
   const [text, setText] = useState('');
   const [index, setIndex] = useState(0);
-  const fullText = "We build digital experiences that inspire.";
+  const fullText = "Quality products for your lifestyle.";
 
   useEffect(() => {
     if (index < fullText.length) {
@@ -18,7 +19,7 @@ const Hero = () => {
     }
   }, [index]);
 
-  const scrollToProjects = () => {
+  const scrollToProducts = () => {
     const projectsSection = document.getElementById('services');
     projectsSection?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -32,7 +33,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-3xl mx-auto md:mx-0">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in">
-            <span className="block mb-2">Digital Studio</span>
+            <span className="block mb-2">nikatuk Shop</span>
           </h1>
           
           <h2 className="text-2xl md:text-3xl font-medium text-gray-700 mb-8 h-16">
@@ -40,28 +41,24 @@ const Hero = () => {
           </h2>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-slide-up">
-            <a href="#contact" className="btn-primary">
-              Start a project
-            </a>
-            <a href="#services" className="btn-outline">
-              Our services
-            </a>
+            <Button onClick={scrollToProducts} className="btn-primary flex items-center gap-2">
+              <ShoppingBag size={20} />
+              Shop now
+            </Button>
+            <Button variant="outline" className="btn-outline">
+              View collections
+            </Button>
           </div>
           
           <div className="flex flex-col items-start gap-2 animate-slide-up" style={{ animationDelay: "0.3s" }}>
-            <p className="text-gray-600 font-medium">Trusted by innovative companies</p>
+            <p className="text-gray-600 font-medium">Featured brands</p>
             <div className="flex flex-wrap gap-8 items-center">
-              <div className="text-xl font-bold text-gray-800">Company A</div>
-              <div className="text-xl font-bold text-gray-800">Company B</div>
-              <div className="text-xl font-bold text-gray-800">Company C</div>
+              <div className="text-xl font-bold text-gray-800">Brand A</div>
+              <div className="text-xl font-bold text-gray-800">Brand B</div>
+              <div className="text-xl font-bold text-gray-800">Brand C</div>
             </div>
           </div>
         </div>
-      </div>
-      
-      {/* Scroll down indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer animate-bounce" onClick={scrollToProjects}>
-        <ArrowDown className="text-primary" size={28} />
       </div>
     </section>
   );

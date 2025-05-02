@@ -1,179 +1,104 @@
 
-import React, { useState } from 'react';
-import { Send, Mail, Phone, MapPin } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import React from 'react';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { Textarea } from './ui/textarea';
+import { Checkbox } from './ui/checkbox';
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: "Message sent!",
-        description: "Thank you for contacting us. We'll get back to you soon.",
-      });
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-    }, 1500);
-  };
-
   return (
-    <section id="contact" className="section-container">
-      <div className="text-center mb-16">
-        <h2 className="section-title">Get In Touch</h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Have a project in mind? We'd love to hear about it. Send us a message and we'll respond as soon as possible.
-        </p>
-      </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* Contact info */}
-        <div className="animate-slide-up">
-          <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-          
-          <div className="space-y-6 mb-10">
-            <div className="flex items-start">
-              <Mail className="text-primary mt-1 mr-4" size={20} />
-              <div>
-                <h4 className="font-medium mb-1">Email Us</h4>
-                <a href="mailto:hello@nikatuk.com" className="text-gray-600 hover:text-primary transition-colors">hello@nikatuk.com</a>
-              </div>
-            </div>
+    <section id="contact" className="py-16 md:py-24">
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Customer Support</h2>
+            <p className="text-gray-700 mb-8">
+              Have questions about our products or need help with an order? Our customer support 
+              team is here to help. Fill out the form and we'll get back to you as soon as possible.
+            </p>
             
-            <div className="flex items-start">
-              <Phone className="text-primary mt-1 mr-4" size={20} />
-              <div>
-                <h4 className="font-medium mb-1">Call Us</h4>
-                <a href="tel:+1234567890" className="text-gray-600 hover:text-primary transition-colors">+1 (234) 567-890</a>
+            <div className="space-y-6">
+              <div className="flex items-start">
+                <Phone className="text-primary mr-4 mt-1" size={20} />
+                <div>
+                  <h3 className="font-semibold mb-1">Phone</h3>
+                  <p className="text-gray-600">+1 (234) 567-890</p>
+                  <p className="text-sm text-gray-500">Monday to Friday, 9am to 5pm EST</p>
+                </div>
               </div>
-            </div>
-            
-            <div className="flex items-start">
-              <MapPin className="text-primary mt-1 mr-4" size={20} />
-              <div>
-                <h4 className="font-medium mb-1">Visit Us</h4>
-                <address className="text-gray-600 not-italic">
-                  123 Digital Avenue<br />
-                  San Francisco, CA 94107
-                </address>
+              
+              <div className="flex items-start">
+                <Mail className="text-primary mr-4 mt-1" size={20} />
+                <div>
+                  <h3 className="font-semibold mb-1">Email</h3>
+                  <p className="text-gray-600">support@nikatuk.com</p>
+                  <p className="text-sm text-gray-500">We aim to respond within 24 hours</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <MapPin className="text-primary mr-4 mt-1" size={20} />
+                <div>
+                  <h3 className="font-semibold mb-1">Store Location</h3>
+                  <p className="text-gray-600">123 Commerce Street, San Francisco, CA 94107</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <Clock className="text-primary mr-4 mt-1" size={20} />
+                <div>
+                  <h3 className="font-semibold mb-1">Store Hours</h3>
+                  <p className="text-gray-600">Monday to Friday: 10am - 7pm</p>
+                  <p className="text-gray-600">Saturday: 10am - 6pm</p>
+                  <p className="text-gray-600">Sunday: 12pm - 5pm</p>
+                </div>
               </div>
             </div>
           </div>
           
-          <h3 className="text-2xl font-bold mb-4">Follow Us</h3>
-          <div className="flex space-x-4">
-            <a href="#" className="w-10 h-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-              <i className="fab fa-twitter"></i>
-              T
-            </a>
-            <a href="#" className="w-10 h-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-              <i className="fab fa-linkedin-in"></i>
-              L
-            </a>
-            <a href="#" className="w-10 h-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-              <i className="fab fa-instagram"></i>
-              I
-            </a>
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
+            <form>
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                    <Input id="name" placeholder="Your name" />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <Input id="email" type="email" placeholder="your@email.com" />
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                  <select id="subject" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm">
+                    <option value="">Select a subject</option>
+                    <option value="order">Order Status</option>
+                    <option value="return">Returns or Exchanges</option>
+                    <option value="product">Product Information</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                  <Textarea id="message" placeholder="How can we help you?" className="min-h-[120px]" />
+                </div>
+                
+                <div className="flex items-center space-x-2">
+                  <Checkbox id="newsletter" />
+                  <label htmlFor="newsletter" className="text-sm text-gray-700">
+                    Subscribe to our newsletter for exclusive offers and updates
+                  </label>
+                </div>
+                
+                <Button type="submit" className="w-full">Send Message</Button>
+              </div>
+            </form>
           </div>
-        </div>
-        
-        {/* Contact form */}
-        <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">Your Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                placeholder="John Doe"
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">Your Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                placeholder="john@example.com"
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                placeholder="Project Inquiry"
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">Your Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={5}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                placeholder="Tell us about your project..."
-              ></textarea>
-            </div>
-            
-            <button 
-              type="submit" 
-              className="btn-primary w-full"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? (
-                <>Sending... <span className="animate-spin ml-2">◌</span></>
-              ) : (
-                <>Send Message <Send size={16} className="ml-2" /></>
-              )}
-            </button>
-          </form>
         </div>
       </div>
     </section>
