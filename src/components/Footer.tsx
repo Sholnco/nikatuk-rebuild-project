@@ -49,10 +49,10 @@ const Footer = () => {
           {/* Logo and description */}
           <div className="lg:col-span-2">
             <Link to="/" className="text-2xl font-playfair font-bold text-white mb-4 inline-block">
-              nikatuk
+              MoTech Shop
             </Link>
             <p className="text-gray-400 mb-6 max-w-md">
-              Premium quality products for your lifestyle. We focus on design, quality, 
+              Premium quality tech products for your lifestyle. We focus on design, quality, 
               and providing an exceptional customer experience.
             </p>
             <div className="flex space-x-4">
@@ -82,7 +82,7 @@ const Footer = () => {
                 <Link to="/collections/sale" className="text-gray-400 hover:text-white transition-colors">Sale</Link>
               </li>
               <li>
-                <Link to="/collections/clothing" className="text-gray-400 hover:text-white transition-colors">Clothing</Link>
+                <Link to="/collections/clothing" className="text-gray-400 hover:text-white transition-colors">Gadgets</Link>
               </li>
               <li>
                 <Link to="/collections/accessories" className="text-gray-400 hover:text-white transition-colors">Accessories</Link>
@@ -104,10 +104,10 @@ const Footer = () => {
                 <Link to="/faq" className="text-gray-400 hover:text-white transition-colors">FAQ</Link>
               </li>
               <li>
-                <Link to="/size-guide" className="text-gray-400 hover:text-white transition-colors">Size Guide</Link>
+                <Link to="/size-guide" className="text-gray-400 hover:text-white transition-colors">Product Guide</Link>
               </li>
               <li className="text-gray-400">
-                <strong className="text-white">Email:</strong> shop@nikatuk.com
+                <strong className="text-white">Email:</strong> info@motechshop.com
               </li>
             </ul>
           </div>
@@ -116,7 +116,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 mb-4 md:mb-0">
-            © {currentYear} nikatuk. All rights reserved.
+            © {currentYear} MoTech Shop. All rights reserved.
           </p>
           <div className="flex items-center space-x-8">
             <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>

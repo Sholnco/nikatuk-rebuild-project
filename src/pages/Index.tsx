@@ -13,8 +13,8 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>nikatuk | Premium Lifestyle Products</title>
-        <meta name="description" content="Shop premium lifestyle products at nikatuk. Quality products designed for your everyday needs." />
+        <title>MoTech Shop | Quality Products for your lifestyle.</title>
+        <meta name="description" content="Shop quality tech products at MoTech Shop. Quality products designed for your everyday needs." />
       </Helmet>
       <Navbar />
       <Hero />
